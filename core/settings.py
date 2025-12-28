@@ -37,6 +37,14 @@ ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    # Local apps
+    'users',
+    'clients',
+    'products',
+    'orders',
+    'payments',
+    'inventory',
+
     # Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -51,14 +59,6 @@ INSTALLED_APPS = [
     'corsheaders',
     'drf_spectacular',
     'simple_history',
-
-    # Local apps
-    'users',
-    'clients',
-    'products',
-    'orders',
-    'payments',
-    'inventory',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +74,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 TEMPLATES = [
     {
@@ -90,9 +91,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
-
-
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
@@ -102,11 +100,12 @@ DATABASES = {
         'NAME': BASE_DIR / os.getenv('DB_NAME','db.sqlite3'),
         'USER': os.getenv('DB_USER', ''),
         'PASSWORD': os.getenv('DB_PASSWORD', ''),
-        'DB_HOST': os.getenv('DB_HOST', ''),
-        'DB_PORT': os.getenv('DB_PORT', '')
+        'HOST': os.getenv('DB_HOST', ''),
+        'PORT': os.getenv('DB_PORT', '')
     }
 }
 
+AUTH_USER_MODEL = 'users.Usuario'
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -142,13 +141,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'static'
+
+# configuracion Media
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Config Rest Framework 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
@@ -157,11 +160,16 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Choco Chispas API',
+    'DESCRIPTION': 'Backend de gestión de pedidos, producción y pagos',
+    'VERSION': '1.0.0',
 }
 
 # configuracion por frontend separado
 CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'False')=='True'
-
-# configuracion Media
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
