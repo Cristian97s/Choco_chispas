@@ -11,6 +11,6 @@ class ProductoAdmin(admin.ModelAdmin):
         "stock",
         "activo",
     )
-    list_filter = ("activos", "categoria")
+    list_filter = ("activo", "categoria")
     search_fields = ("nombre",)
     list_editable = ("precio", "stock", "activo")

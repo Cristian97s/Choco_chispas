@@ -18,7 +18,7 @@ class ProductoSerializaer(serializers.ModelSerializer):
             "activo",
             "imagen",
             "categoria",
-            "categoria_nombre"
+            "categoria_nombre",
             "creado",
             "actualizado",
         )

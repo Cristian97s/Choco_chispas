@@ -2,7 +2,7 @@ from django.db import models
 from products.models.category import Categoria
 
 class Producto(models.Model):
-    categora = models.ForeignKey(
+    categoria = models.ForeignKey(
         Categoria,
         on_delete=models.PROTECT,
         related_name="productos"
