@@ -3,11 +3,11 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 
 from products.models import Producto
-from products.serializers.product import ProductoSerializaer
+from products.serializers.product import ProductoSerializer
 
 class ProductoViewSet(ModelViewSet):
     queryset = Producto.objects.select_related("categoria")
-    serializer_class = ProductoSerializaer
+    serializer_class = ProductoSerializer
     filter_backends = [
         DjangoFilterBackend,
         SearchFilter,

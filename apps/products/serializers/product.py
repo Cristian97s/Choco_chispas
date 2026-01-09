@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from products.models import Producto
 
-class ProductoSerializaer(serializers.ModelSerializer):
+class ProductoSerializer(serializers.ModelSerializer):
     categoria_nombre = serializers.CharField(
         source="categoria.nombre",
         read_only=True
