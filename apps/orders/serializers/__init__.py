@@ -1,2 +1,3 @@
-from .pedido import Pedido
-from .detalle_pedido import DetallePedido
+from .pedido import PedidoSerializer
+from .detalle_pedido import DetallePedidoSerializer
+from .pedido_personalizado import PedidoPersonalizadoSerializer
