@@ -10,7 +10,11 @@ from .permissions import IsAdmin
 
 class UsuarioViewSet(ModelViewSet):
     queryset = Usuario.objects.all()
-    permission_classes = [IsAuthenticated, IsAdmin]
+
+    def get_permissions(self):
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            return [IsAdmin()]
+        return [IsAuthenticated()]
 
     def get_serializer_class(self):
         if self.action == 'create':

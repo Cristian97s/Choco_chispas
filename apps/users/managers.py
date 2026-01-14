@@ -24,4 +24,9 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('es_superusuario', True)
         extra_fields.setdefault('rol', 'ADMIN')
 
+        if extra_fields.get('es_staff') is not True:
+            raise ValueError('El superusuario debe tener es_staff=True')
+        if extra_fields.get('es_superusuario') is not True:
+            raise ValueError('El superusuario debe tener es_superusuario=True')
+
         return self.create_user(nombre_usuario, email, password, **extra_fields)
