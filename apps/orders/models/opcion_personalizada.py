@@ -16,7 +16,7 @@ class OpcionPersonalizadaPedido(models.Model):
 
     class Meta:
         db_table = "opcion_personalizada_pedido"
-        unique_name = ("detalle_personalizacion", "variante")
+        unique_together = ("detalle_personalizacion", "variante")
         verbose_name = "Opcion personalizada del pedido"
         verbose_name_plural = "Opciones personalizadas del pedido"
 
