@@ -1,3 +1,4 @@
 from .pedido import PedidoAdmin
 from .detalle_pedido import DetallePedidoAdmin
 from .pedido_personalizado import PedidoPersonalizadoAdmin
+from .opcion_personalizada import OpcionPersonalizadaPedidoAdmin
