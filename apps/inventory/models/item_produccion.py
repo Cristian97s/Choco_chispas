@@ -22,5 +22,10 @@ class ItemProduccion(models.Model):
         default="PENDIENTE_PRO"
     )
 
+    class Meta:
+        db_table = 'item_produccion'
+        verbose_name = 'Item Producccion'
+        verbose_name_plural = 'Items Produccion'
+
     def __str__(self):
         return f"Produccion #{self.id}"

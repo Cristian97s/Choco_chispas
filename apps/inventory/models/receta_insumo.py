@@ -15,6 +15,9 @@ class RecetaInsumo(models.Model):
     cantidad_requerida = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
+        db_table = 'receta_insumo'
+        verbose_name = 'Receta Insumo'
+        verbose_name_plural = 'Receta Insumos'
         unique_together = ("receta","insumo")
 
     def __str__(self):

@@ -9,10 +9,10 @@ class Cliente (models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        db_table = 'Cliente'
+        db_table = 'cliente'
         verbose_name = 'Cliente'
         verbose_name_plural = 'Clientes'
-        ordering = ["-fecha_creacion"]
+        ordering = ["-fecha_creacion"] # - orden desendente         
 
     def __str__(self):
         return f"{self.nombre} - {self.telefono}"

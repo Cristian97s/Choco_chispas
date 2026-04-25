@@ -7,6 +7,9 @@ class Insumo(models.Model):
     stock_minimo = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     class Meta:
+        db_table = 'insumo'
+        verbose_name = 'Insumo'
+        verbose_plural = 'Insumos'
         ordering = ["nombre"]
 
     def __str__(self):

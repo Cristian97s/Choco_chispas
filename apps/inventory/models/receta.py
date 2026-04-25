@@ -9,5 +9,10 @@ class Receta(models.Model):
     )
     descripcion = models.TextField(blank=True)
 
+    class Meta:
+        db_table = 'receta'
+        verbose_name = 'receta'
+        verbose_name_plural = 'recetas'
+
     def __str__(self):
         return f"Receta de {self.producto.nombre}"
