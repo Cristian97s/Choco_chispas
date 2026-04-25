@@ -9,7 +9,7 @@ class Insumo(models.Model):
     class Meta:
         db_table = 'insumo'
         verbose_name = 'Insumo'
-        verbose_plural = 'Insumos'
+        verbose_name_plural = 'Insumos'
         ordering = ["nombre"]
 
     def __str__(self):
