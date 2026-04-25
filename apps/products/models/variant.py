@@ -21,8 +21,9 @@ class VarianteProducto(models.Model):
     activo = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = "VarianteProdcuto"
-        verbose_name_plural = "variantesproducto"
+        db_table = "variante_producto"
+        verbose_name = "Variante Producto"
+        verbose_name_plural = "Variantes Producto"
         unique_together = ("tipo", "nombre")
         ordering = ["tipo", "nombre"]
 

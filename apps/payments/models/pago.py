@@ -26,6 +26,9 @@ class Pago(models.Model):
     fecha_pago = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        db_table = 'pago'
+        verbose_name = 'Pago'
+        verbose_name_plural = 'Pagos'
         ordering = ["-fecha_pago"]
 
     def __str__(self):

@@ -6,8 +6,9 @@ class Categoria(models.Model):
     descripcion = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorias"
+        db_table = 'categoria'
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
         ordering = ["nombre"]
 
     def __str__(self):

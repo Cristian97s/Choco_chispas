@@ -21,12 +21,13 @@ class Producto(models.Model):
     actualizado = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = "Producto"
-        verbose_name_plural = "Productos"
-        ordering = ["-creado"]
+        db_table = 'producto'
+        verbose_name = 'Producto'
+        verbose_name_plural = 'Productos'
+        ordering = ['-creado']
         indexes = [
-            models.Index(fields=["nombre"]),
-            models.Index(fields=["activo"])
+            models.Index(fields=['nombre']),
+            models.Index(fields=['activo'])
         ]
     
     def __str__(self):
