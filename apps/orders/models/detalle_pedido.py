@@ -18,6 +18,11 @@ class DetallePedido(models.Model):
     precio_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     es_personalizado = models.BooleanField(default=False)
 
+    class Meta:
+        db_table = 'detalle_pedido'
+        verbose_name = 'Detalle Pedido'
+        verbose_name_plural = 'Detalle Pedidos'
+
     def subtotal(self):
         return self.cantidad * self.precio_unitario
     

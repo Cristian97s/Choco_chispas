@@ -15,5 +15,10 @@ class PedidoPersonalizado(models.Model):
     )
     texto_personalizado = models.TextField(blank=True)
 
+    class Meta:
+        db_table = 'pedido_personalizado'
+        verbose_name = 'Pedido Personalizado'
+        verbose_name_plural = 'Pedidos Personalizados'
+
     def __str__(self):
         return f"Personalizacion #{self.id}"

@@ -24,8 +24,8 @@ class ItemProduccion(models.Model):
 
     class Meta:
         db_table = 'item_produccion'
-        verbose_name = 'Item Producccion'
-        verbose_name_plural = 'Items Produccion'
+        verbose_name = 'Item de Producccion'
+        verbose_name_plural = 'Items de Produccion'
 
     def __str__(self):
         return f"Produccion #{self.id}"
