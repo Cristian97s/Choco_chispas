@@ -8,6 +8,6 @@ from inventory.views import (
 router = DefaultRouter()
 router.register(r"insumos", InsumoViewSet)
 router.register(r"recetas", RecetaViewSet)
-router.register(r"poduccion", ItemProduccionViewSet)
+router.register(r"produccion", ItemProduccionViewSet)
 
 urlpatterns = router.urls
