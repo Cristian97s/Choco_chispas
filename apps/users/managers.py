@@ -20,13 +20,13 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, nombre_usuario, email, password=None, **extra_fields):
-        extra_fields.setdefault('es_staff', True)
-        extra_fields.setdefault('es_superusuario', True)
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('rol', 'ADMIN')
 
-        if extra_fields.get('es_staff') is not True:
-            raise ValueError('El superusuario debe tener es_staff=True')
-        if extra_fields.get('es_superusuario') is not True:
-            raise ValueError('El superusuario debe tener es_superusuario=True')
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('El superusuario debe tener is_staff=True')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('El superusuario debe tener is_superuser=True')
 
         return self.create_user(nombre_usuario, email, password, **extra_fields)

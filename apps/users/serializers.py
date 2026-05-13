@@ -9,7 +9,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'nombre_usuario',
             'email',
             'rol',
-            'esta_activo',
+            'is_active',
             'fecha_registro',
         )
         read_only_fields = ('id', 'fecha_registro')
