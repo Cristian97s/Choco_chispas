@@ -1,7 +1,7 @@
 from rest_framework.permissions import BasePermission
 
 class IsAdmin(BasePermission):
-    def has_permission(self, request, view):
+    def has_permission(self, request, view) -> bool:  # type: ignore[override]
         return bool(
             request.user
             and request.user.is_authenticated
@@ -9,7 +9,7 @@ class IsAdmin(BasePermission):
         )
 
 class IsVendedor(BasePermission):
-    def has_permission(self, request, view):
+    def has_permission(self, request, view) -> bool:  # type: ignore[override]
         return bool(
             request.user
             and request.user.is_authenticated

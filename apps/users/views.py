@@ -16,7 +16,7 @@ class UsuarioViewSet(ModelViewSet):
             return [IsAdmin()]
         return [IsAuthenticated()]
 
-    def get_serializer_class(self):
+    def get_serializer_class(self):  # pyright: ignore[reportIncompatibleMethodOverride]
         if self.action == 'create':
             return UsuarioCreateSerializer
         return UsuarioSerializer
