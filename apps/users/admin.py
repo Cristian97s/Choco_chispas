@@ -5,10 +5,10 @@ from simple_history.admin import SimpleHistoryAdmin
 @admin.register(Usuario)
 class UsuarioAdmin(SimpleHistoryAdmin):
     # Columnas que se verán en el listado de usuarios
-    list_display = ('nombre_usuario', 'email', 'rol', 'esta_activo', 'es_staff', 'fecha_registro')
+    list_display = ('nombre_usuario', 'email', 'rol', 'is_active', 'is_staff', 'fecha_registro')
     
     # Filtros laterales para facilitar la búsqueda
-    list_filter = ('rol', 'esta_activo', 'es_staff')
+    list_filter = ('rol', 'is_active', 'is_staff')
     
     # Campos por los que se puede buscar
     search_fields = ('nombre_usuario', 'email')
@@ -22,7 +22,7 @@ class UsuarioAdmin(SimpleHistoryAdmin):
             'fields': ('nombre_usuario', 'password', 'email', 'rol')
         }),
         ('Permisos y Estado', {
-            'fields': ('esta_activo', 'es_staff', 'es_superusuario', 'groups', 'user_permissions')
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')
         }),
         ('Fechas Importantes', {
             'fields': ('ultimo_inicio_sesion', 'fecha_registro')
@@ -33,4 +33,4 @@ class UsuarioAdmin(SimpleHistoryAdmin):
     readonly_fields = ('fecha_registro', 'ultimo_inicio_sesion')
 
     # Configuración para que el historial sea visible en el admin
-    history_list_display = ['rol', 'esta_activo']
+    history_list_display = ['rol', 'is_active']

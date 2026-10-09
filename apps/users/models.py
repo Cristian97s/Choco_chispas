@@ -31,7 +31,7 @@ class Usuario (AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'nombre_usuario'
-    REQUIRED_FIELDS = ('email',) # tupla para evitar el error "mutable defautl"
+    REQUIRED_FIELDS = ['email']
 
     class Meta:
         db_table = 'usuario'
